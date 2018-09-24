@@ -260,6 +260,19 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   font-weight: 700;
   color: #7e24fa; }
 
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg); } }
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
 @media (min-width: 768px) {
   .app {
     display: flex; } }

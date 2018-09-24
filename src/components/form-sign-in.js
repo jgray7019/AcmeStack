@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 function validateUsername(username){
     const usernameError = [];
 
@@ -52,7 +53,7 @@ class FormSignIn extends React.Component {
             }); 
         } else {
             this.setState({
-                loading: true
+                loading: true,
             }); 
 
             setTimeout(() => {
@@ -92,12 +93,12 @@ class FormSignIn extends React.Component {
                         className={this.state.errors.passwordError.length? "error form__input" : 'form__input'}
                     >
                     </input>
-                    {(this.state.loading === true) ?
+                    {(this.state.loading) ?
                         <label htmlFor="form__input--loading" className="form__label--loading">
                             <input className="form__input--loading" id="form__input--loading" type="submit" value=" " />
                         </label>
-                        :
-                        <input className="form__input--submit"  type="submit" value="login"  />
+                   :
+                         <input className="form__input--submit"  type="submit" value="login"  /> 
                     }
                  </div>
                 <div className="form__error--container">

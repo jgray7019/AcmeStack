@@ -15,7 +15,7 @@ class App extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        user: true,
+        user: null,
         loading: false,
     }
   }
@@ -25,7 +25,7 @@ class App extends Component {
       user: {
         username,
         password
-      }
+      },
     })
   }
 
@@ -46,15 +46,15 @@ class App extends Component {
             </div>
           </div>
         </header>
-        <section className={this.state.user? "section--signedIn section" : "section"}>
+        <section className={this.state.user? "section section--signedIn" :  "section "}>
           <div className="section__wrapper">
             {(this.state.user) ?
-              <div className="section__container--signedOut">
-                <FormSignIn onSignIn={this.signIn.bind(this)}/>
-                <SignInSocial facebook={facebook} twitter={twitter} google={google} />
-              </div>
-            :
               <FormSignOut onSignOut={this.signOut.bind(this)}/>
+            :
+            <div className="section__container--signedOut">
+               <FormSignIn onSignIn={this.signIn.bind(this)}/>
+                <SignInSocial facebook={facebook} twitter={twitter} google={google} />
+            </div>
             }
           </div>
         </section>

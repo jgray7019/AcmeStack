@@ -1,0 +1,104 @@
+.header__title {
+  font-size: 28px;
+  line-height: 3.2rem;
+  font-weight: 700; }
+
+.form [class*="form__input"] {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  font-weight: 5.0rem; }
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg); } }
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+.header {
+  background-color: #7e24fa;
+  padding: 16rem 0 11rem 0;
+  position: relative; }
+  .header__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .header__title {
+    color: #f4ecff; }
+  .header__logo--container {
+    width: 8.0rem;
+    height: 8.0rem;
+    margin: 1.5rem 0;
+    background-image: linear-gradient(45deg, #7e24fa 0%, #caaef2 75%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem; }
+    .header__logo--container .header__logo {
+      padding: 1rem;
+      width: calc(100% - .4rem);
+      background: #f4ecff;
+      border-radius: 1rem; }
+
+.section__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.form {
+  position: relative;
+  top: -8.85rem; }
+  .form__container {
+    border-radius: .5rem;
+    -webkit-box-shadow: 3px 10px 25px 0px rgba(0, 0, 0, 0.18);
+    -moz-box-shadow: 3px 10px 25px 0px rgba(0, 0, 0, 0.18);
+    box-shadow: 3px 10px 25px 0px rgba(0, 0, 0, 0.18); }
+  .form [class*="form__input"] {
+    width: 100%;
+    text-align: center;
+    text-transform: lowercase;
+    color: #7e24fa;
+    padding: 1rem 0;
+    font-weight: 700;
+    border: none; }
+    .form [class*="form__input"]:focus {
+      outline: none; }
+    .form [class*="form__input"]::placeholder {
+      opacity: 1;
+      color: #caaef2; }
+  .form .error {
+    color: #ff0051;
+    border: 0.15rem solid #ff0051; }
+  .form__input:nth-of-type(1) {
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    border-bottom: 0.05rem solid #f4ecff; }
+  .form__input--submit, .form__input--loading {
+    background-color: #7e24fa;
+    color: #f4ecff !important;
+    border-top: none;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem; }
+  .form__input--icon {
+    position: relative; }
+    .form__input--icon::after {
+      content: url(../svg/icon-loading.svg);
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 2rem;
+      height: 20px;
+      color: #f4ecff;
+      -webkit-animation: spin 0.3s linear infinite;
+      -moz-animation: spin 0.3s linear infinite;
+      animation: spin 0.3s linear infinite; }

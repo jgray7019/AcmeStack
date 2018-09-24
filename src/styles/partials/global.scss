@@ -1,0 +1,68 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: $light-purple_lighter;
+
+    //BELOW BODY STYLES FROM POLARIS    
+    font-family: $font-family;
+
+    /* Make type rendering look crisper */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Disable auto-enlargement of small text in Safari */
+    text-size-adjust: 100%;
+
+    /* Enable kerning and optional ligatures */
+    text-rendering: optimizeLegibility;
+
+    color: $light-purple_lighter;
+}
+
+/**
+* Form elements render using OS defaults,
+* so font-family inheritance must be specifically declared
+*/
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+}
+
+ 
+[class*="wrapper"] {
+    width: 75%;
+    margin: 0 auto;
+
+    @include respond-to ('large') {
+        width: 50%;
+    }
+}
+
+img {
+	width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	padding: 1rem 0;
+}
+
+

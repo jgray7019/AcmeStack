@@ -1,18 +1,63 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import './styles/App.css';
+
+import logo from './svg/logo-acmestack.svg';
+import facebook from './svg/logo-facebook.svg';
+import google from './svg/logo-google.svg';
+import twitter from './svg/logo-twitter.svg';
+
+import FormSignIn from './components/form-sign-in';
+import FormSignOut from './components/form-sign-out';
+import SignInSocial from './components/sign-in-social';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+      this.state = {
+        user: true,
+        loading: false,
+    }
+  }
+
+  signIn(username, password) {
+    this.setState({
+      user: {
+        username,
+        password
+      }
+    })
+  }
+
+  signOut() {
+    this.setState({
+      user: null
+    })
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+      <div className="app">
+        <header className="header">
+          <div className="header__wrapper">
+            <h1 className="header__title">AcmeStack</h1>
+            <div className="header__logo--container">
+              <img src={logo} className="header__logo" alt="AcmeStack logo" />
+            </div>
+          </div>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <section className={this.state.user? "section--signedIn section" : "section"}>
+          <div className="section__wrapper">
+            {(this.state.user) ?
+                <FormSignOut onSignOut={this.signOut.bind(this)}/>
+            :
+              <div className="section__container--signedOut">
+                <FormSignIn onSignIn={this.signIn.bind(this)}/>
+                <SignInSocial facebook={facebook} twitter={twitter} google={google} />
+              </div>
+            }
+          </div>
+        </section>
       </div>
     );
   }

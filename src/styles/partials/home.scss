@@ -1,0 +1,308 @@
+@import 'variables.scss';
+
+.app {
+    @include respond-to ('medium') {
+        display: flex;
+    }
+}
+
+.header {
+    background-color: $dark-purple;
+    position: relative;
+    min-height: 45vh;
+    display: flex;
+    align-items: flex-end;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 10rem;
+
+        @include respond-to ('medium') {
+            padding-bottom: 0;
+            padding-top: 20vh;   
+        }
+    }
+
+    &__title {
+        @extend %heading-large;
+    }
+
+    &__logo--container {
+        width: 8.0rem;
+        height: 8.0rem;
+        margin: 1.5rem 0;
+        background-image: linear-gradient(45deg, rgba(126,36,250,1) 0%, rgba(202,174,242,1) 75%) ;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1rem;
+
+        .header__logo {
+            padding: 1rem;
+            width: calc(100% - .4rem);
+            background: $light-purple_lighter;
+            border-radius: 1rem;
+        }
+    }
+
+    @include respond-to ('medium') {
+        width: 50%;
+        min-height: 100vh;
+        align-items: flex-start;
+        order: 2;
+    }
+}
+
+.section {
+    &--signedIn {
+        background-color: $dark-purple;
+        margin-top: -.1rem;
+    }
+
+    &__heading {
+        @extend %heading-large;
+    }
+
+    &__subheading {
+        @extend %heading-small;
+        font-weight: 700;
+        color: $light-purple_lighter;
+        text-transform: none;
+        text-align: center;
+    }
+
+    &__button {
+        background-color: $light-purple_lighter;
+        color: $dark-purple;
+        text-transform: lowercase;
+        border-radius: 3rem;
+        @extend %heading-small;
+        padding: .5rem 2.5rem;
+        margin-top: 8rem;
+    }
+
+    @include respond-to ('medium') {
+        width: 50%;
+        min-height: 100vh;
+        align-items: flex-start;
+    }
+}
+
+.section__container--signedIn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 60vh;
+
+    @include respond-to ('medium') {
+        padding-top: 20vh;
+    }
+}
+
+.section__container--signedOut{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 55vh;
+
+    @include respond-to ('medium') {
+        min-height: 100vh;
+        padding-top: 20vh;
+    }
+}
+
+.form {
+    position: relative;
+    top: -8.85rem;
+
+    &__container {
+        border-radius: .5rem;
+        @include box-shadow(3px 10px 25px 0px rgba(0,0,0,0.18));
+    }
+
+    [class*="form__input"] {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        @extend %heading-small;
+        font-weight: 700;
+        border: none;
+
+        &:focus { 
+            outline: none; 
+        }
+
+        &::placeholder {
+            opacity: 1;
+            color: $light-purple_darker;
+        }  
+    }
+
+    .error {
+        color: $red;
+        border: .15rem solid $red;
+    }
+
+    &__input {
+        &:nth-of-type(1) {
+            border-top-left-radius: .5rem;
+            border-top-right-radius: .5rem;
+            border-bottom: 0.05rem solid $light-purple_lighter;
+        }
+
+        &--submit, &--loading {
+            background-color: $dark-purple;
+            color: $light-purple_lighter !important;
+            border-top: none;
+            border-bottom-left-radius: .5rem;
+            border-bottom-right-radius: .5rem;
+        } 
+    } 
+
+    &__label--loading{
+        position: relative;
+        &::after{
+            content: url(../svg/icon-loading.svg);
+            position: absolute;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 2rem;
+            height: 20px;
+            @include animation(spin .3s linear infinite);
+        }
+    }
+
+    &__container--checkbox {
+        text-align: center;
+        padding-top: 10rem;
+        position: relative;
+        width: fit-content;
+        margin: 0 auto;
+
+        .form__input--checkbox {
+            width: auto;
+            position: absolute;
+            top: 0;
+            left: -9999px;
+            visibility: hidden;
+
+            &:checked + label {
+                &:after {
+                  opacity: 1;
+                }
+            }
+        }
+
+        .form__label--checkbox {
+            @extend %heading-small;
+            font-size: 1.4em;
+            cursor: pointer;
+            padding-left: 3rem;
+            position: relative;
+
+            &:before,
+            &:after {
+                content: '';
+                left: 0;
+                bottom: 0;
+                top: 0;
+                margin: auto;
+                position: absolute;
+                border-radius: .3rem;
+            }
+            &:before {
+                width: 2rem;
+                height: 2rem;
+                background: transparent;
+                border: .15rem solid $dark-purple;
+                
+            }
+            &:after {
+                left: .4rem;
+                width: 1.5rem;
+                height: 1.5rem;
+                opacity: 0;
+                background: $dark-purple;
+                z-index: 9999;
+                transition: all 0.25s ease-in-out;
+            }
+        }
+    }
+
+    &__error--container {
+        color: $red;
+        text-transform: lowercase;
+        @extend %caption;
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 15rem;
+    }
+
+    @include respond-to ('medium') {
+        top: 0;
+    }
+}
+
+.socialSection{
+    margin-top: -2rem;
+    text-align: center;
+    &__caption {
+        @extend %caption;
+        font-style: italic;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+
+        @include respond-to ('medium') {
+            padding-bottom: 3rem;
+        }
+    }
+
+    &__listItem {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        background-color: $light-purple;
+        border-radius: 50%;
+        justify-content: center;
+        margin: 1.5rem 1rem;
+    }
+
+    &__link {
+        height: 1.5rem;
+        padding: 0;
+    }
+
+    &__icon {
+        width: 1.5rem;
+    }  
+}
+
+
+
+
+
+
+
+  
+
+
+
+ 
+
+    
+
+

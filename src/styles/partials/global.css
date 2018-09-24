@@ -1,0 +1,60 @@
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg); } }
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  background: #f4ecff;
+  font-family: -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Helvetica Neue, sans-serif;
+  /* Make type rendering look crisper */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Disable auto-enlargement of small text in Safari */
+  text-size-adjust: 100%;
+  /* Enable kerning and optional ligatures */
+  text-rendering: optimizeLegibility;
+  color: #f4ecff; }
+
+/**
+* Form elements render using OS defaults,
+* so font-family inheritance must be specifically declared
+*/
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; }
+
+[class*="wrapper"] {
+  width: 75%;
+  margin: 0 auto; }
+  @media (min-width: 1040px) {
+    [class*="wrapper"] {
+      width: 50%; } }
+
+img {
+  width: 100%; }
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0; }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none;
+  padding: 1rem 0; }

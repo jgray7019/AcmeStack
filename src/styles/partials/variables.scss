@@ -1,0 +1,37 @@
+//COLOURS
+$white: #fff;
+$black: #000;
+$red: #ff0051;
+
+$light-purple: #e4d2ff;
+$light-purple_lighter: #f4ecff;
+$light-purple_darker: #caaef2;
+
+$dark-purple: #7e24fa;
+$dark-purple_lighter: #8456ff;
+$dark-purple_darker: #6624d2;
+
+
+//FONT
+$font-family: -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Helvetica Neue, sans-serif;
+
+%heading-large {
+    font-size: 28px;
+    line-height: 3.2rem;
+    font-weight: 700;
+}
+
+%heading-small {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    font-weight: 700;
+    text-transform: lowercase;
+    color: $dark-purple;
+}
+
+%caption {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    font-weight: 700;
+    color: $dark-purple;
+}

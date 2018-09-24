@@ -49,12 +49,12 @@ class App extends Component {
         <section className={this.state.user? "section--signedIn section" : "section"}>
           <div className="section__wrapper">
             {(this.state.user) ?
-                <FormSignOut onSignOut={this.signOut.bind(this)}/>
-            :
               <div className="section__container--signedOut">
                 <FormSignIn onSignIn={this.signIn.bind(this)}/>
                 <SignInSocial facebook={facebook} twitter={twitter} google={google} />
               </div>
+            :
+              <FormSignOut onSignOut={this.signOut.bind(this)}/>
             }
           </div>
         </section>
